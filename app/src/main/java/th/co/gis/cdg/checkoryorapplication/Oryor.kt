@@ -2,11 +2,11 @@ package th.co.gis.cdg.checkoryorapplication
 
 class Oryor {
 
-    private val foodPattern: String = "[0-9]{2}-[0-9]-[0-9]{5}-[0-9]-[0-9]{1,4}"
-    private val medicinePattern: String = "[0-9]{0,1}[ABCDEFGHKLMN][0-9]{1,4}\\/[0-9]{2}"
-    private val cosmeticsPattern: String = "[0-9]{2}-[0-9]-[0-9]{7,10}"
-    private val medicalInsPattern: String = "[ผน]\\.[0-9]{2}/[0-9]{1,4}"
-    private val dangerPattern: String = "วอส\\.[0-9]{2}/[0-9]{1,4}"
+    private val foodPattern: String = "/[0-9]{2}-[0-9]-[0-9]{5}-[0-9]-[0-9]{1,4}/g"
+    private val medicinePattern: String = "/[0-9]{0,1}[ABCDEFGHKLMN][0-9]{1,4}\\/[0-9]{2}/g"
+    private val cosmeticsPattern: String = "/[0-9]{2}-[0-9]-[0-9]{7,10}/g"
+    private val medicalInsPattern: String = "/[ผน]\\.[0-9]{2}/[0-9]{1,4}/g"
+    private val dangerPattern: String = "/วอส\\.[0-9]{2}/[0-9]{1,4}/g"
 
     fun find(with: String):String {
         val foodRegex = Regex(foodPattern)
