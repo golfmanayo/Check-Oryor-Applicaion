@@ -23,7 +23,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
 
         buttonTest.setOnClickListener {
-            val  oryortext = oryor.find("20-2-04858-2-0016")
+            val  oryortext = oryor.find("asdf0A2562/23dsads")
             val i=0
         }
 

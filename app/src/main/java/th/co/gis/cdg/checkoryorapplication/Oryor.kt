@@ -2,24 +2,24 @@ package th.co.gis.cdg.checkoryorapplication
 
 class Oryor {
 
-    private val foodPattern: String = "/[0-9]{2}-[0-9]-[0-9]{5}-[0-9]-[0-9]{1,4}/g"
-    private val medicinePattern: String = "/[0-9]{0,1}[ABCDEFGHKLMN][0-9]{1,4}\\/[0-9]{2}/g"
-    private val cosmeticsPattern: String = "/[0-9]{2}-[0-9]-[0-9]{7,10}/g"
-    private val medicalInsPattern: String = "/[ผน]\\.[0-9]{2}/[0-9]{1,4}/g"
-    private val dangerPattern: String = "/วอส\\.[0-9]{2}/[0-9]{1,4}/g"
+    private val foodPattern: String = """[0-9]{2}-[0-9]-[0-9]{5}-[0-9]-[0-9]{1,4}"""
+    private val medicinePattern: String = """[0-9]{0,1}[A-FG-HK-N][0-9]{1,4}/[0-9]{2}"""
+    private val cosmeticsPattern: String = """[0-9]{2}-[0-9]-[0-9]{7,10}"""
+    private val medicalInsPattern: String = """[ผน].[0-9]{2}/[0-9]{1,4}"""
+    private val dangerPattern: String = """วอส.[0-9]{2}/[0-9]{1,4}"""
 
     fun find(with: String):String {
-        val foodRegex = Regex(foodPattern)
+        val foodRegex = foodPattern.toRegex()
         val medicineRegex = Regex(medicinePattern)
         val cosmeticsRegex = Regex(cosmeticsPattern)
         val medicalInsRegex = Regex(medicalInsPattern)
         val dangerRegex = Regex(dangerPattern)
 
-        val foodMatches = foodRegex.matches(input = with)
-        val medicineMatches = medicineRegex.matches(input = with)
-        val cosmeticsMatches = cosmeticsRegex.matches(input = with)
-        val medicalInsMatches = medicalInsRegex.matches(input = with)
-        val dangerMatches = dangerRegex.matches(input = with)
+        val foodMatches = foodRegex.containsMatchIn(input = with)
+        val medicineMatches = medicineRegex.containsMatchIn(input = with)
+        val cosmeticsMatches = cosmeticsRegex.containsMatchIn(input = with)
+        val medicalInsMatches = medicalInsRegex.containsMatchIn(input = with)
+        val dangerMatches = dangerRegex.containsMatchIn(input = with)
 
         if (foodMatches) {
             val value = foodRegex.find(with)?.value
