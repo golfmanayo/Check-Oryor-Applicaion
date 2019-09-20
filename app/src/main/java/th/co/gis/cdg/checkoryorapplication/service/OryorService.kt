@@ -9,7 +9,7 @@ import th.co.gis.cdg.checkoryorapplication.model.Oryor
 class OryorService {
 
     companion object {
-        const val BASE_UEL = "http://pca.fda.moph.go.th/ajax-check-product.php"
+        const val BASE_UEL = "http://pca.fda.moph.go.th/"
     }
 
     var api: OryorApi
@@ -25,7 +25,7 @@ class OryorService {
     }
 
     fun getOryor(cade : String): Single<List<Oryor>> {
-        val parameter = hashMapOf(
+        val parameter = hashMapOf<String,Any>(
             "number_src" to cade,
             "type" to 0
         )

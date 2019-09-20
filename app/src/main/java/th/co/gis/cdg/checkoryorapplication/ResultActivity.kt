@@ -13,6 +13,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptio
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import kotlinx.android.synthetic.main.activity_result.*
+import th.co.gis.cdg.checkoryorapplication.service.OryorService
 
 class ResultActivity : AppCompatActivity() {
 
@@ -22,7 +23,18 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        val service = OryorService()
+
         buttonTest.setOnClickListener {
+            service.getOryor("20-2-04858-2-001")
+                .subscribe(
+                    {
+                        val i=0
+                    },
+                    {
+
+                    }
+                )
             val  oryortext = oryor.find("asdf0A2562/23dsads")
             val i=0
         }

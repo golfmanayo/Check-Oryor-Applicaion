@@ -8,7 +8,7 @@ import th.co.gis.cdg.checkoryorapplication.model.Oryor
 
 interface OryorApi {
 
-    @POST
+    @POST("ajax-check-product.php")
     @Headers("Content-Type: x-www-form-urlencoded; charset=utf-8")
     fun getDataOryor(@Body body: HashMap<String, Any>) : Single<List<Oryor>>
 
