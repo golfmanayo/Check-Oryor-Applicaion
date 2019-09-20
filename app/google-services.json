@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "699222560930",
+    "firebase_url": "https://oryorhackathon.firebaseio.com",
+    "project_id": "oryorhackathon",
+    "storage_bucket": "oryorhackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699222560930:android:361a5ac47d1aca1d5747fb",
+        "android_client_info": {
+          "package_name": "th.co.gis.cdg.checkoryorapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699222560930-kerg8d2e3838bg0j3ieq495kikqif5p7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Ca8CMMhIthPqVz0kLmrGs-8RRYap0Rc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699222560930-kerg8d2e3838bg0j3ieq495kikqif5p7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
