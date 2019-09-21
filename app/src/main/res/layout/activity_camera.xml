@@ -96,8 +96,8 @@
         android:id="@+id/layer_text_oryor"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="gone"
         android:background="#99000000"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,10 +109,10 @@
             android:id="@+id/text_oryor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:textColor="@android:color/white"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -122,11 +122,12 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_margin="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@android:drawable/checkbox_on_background" />
+            app:srcCompat="@drawable/correct" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
