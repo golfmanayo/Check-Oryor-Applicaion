@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
@@ -25,6 +26,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
@@ -38,6 +42,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import th.co.gis.cdg.checkoryorapplication.util.ImageAnalyzer
 import java.io.File
 import java.io.IOException
+import javax.sql.DataSource
 
 class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageAnalyzerListener {
     override fun onGetTextOryor(string: String) {
@@ -77,6 +82,10 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
 
         check_button.setOnClickListener {
             processingImage()
+//                    Toast.makeText(baseContext, oryor_edit.text, Toast.LENGTH_SHORT).show()
+//                    val intent = Intent(this, ResultActivity::class.java)
+//                    intent.putExtra("code", oryor_edit.text)
+//                    startActivity(intent)
         }
     }
 
@@ -89,6 +98,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             .addOnSuccessListener { result ->
                 val text = Oryor.find(result.text)
                 if (text.isNotEmpty()) {
+//                    oryor_edit.text = text
                     Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ResultActivity::class.java)
                     intent.putExtra("code", text)
@@ -144,8 +154,31 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     image_view.visibility = View.VISIBLE
                     check_button.visibility = View.GONE
                     check_button.visibility = View.VISIBLE
+                    oryor_edit.visibility = View.GONE
+                    oryor_edit.visibility = View.VISIBLE
                     Glide.with(this@CameraActivity)
                         .load(file)
+//                        .listener(object : RequestListener<Drawable> {
+//                            override fun onLoadFailed(
+//                                e: GlideException?,
+//                                model: Any?,
+//                                target: Target<Drawable>?,
+//                                isFirstResource: Boolean
+//                            ): Boolean {
+//                                return false
+//                            }
+//
+//                            override fun onResourceReady(
+//                                resource: Drawable?,
+//                                model: Any?,
+//                                target: com.bumptech.glide.request.target.Target<Drawable>?,
+//                                dataSource: com.bumptech.glide.load.DataSource?,
+//                                isFirstResource: Boolean
+//                            ): Boolean {
+//                                processingImage()
+//                                return false
+//                            }
+//                        })
                         .into(image_view)
 
                 }
@@ -245,6 +278,8 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             image_view.visibility = View.GONE
             check_button.visibility = View.VISIBLE
             check_button.visibility = View.GONE
+            oryor_edit.visibility = View.VISIBLE
+            oryor_edit.visibility = View.GONE
             return
         }
     }

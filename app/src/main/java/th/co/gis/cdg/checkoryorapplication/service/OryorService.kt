@@ -29,7 +29,7 @@ class OryorService {
     fun getOryor(cade : String): Observable<JsonObject> {
         val parameter = hashMapOf<String,Any>(
             "number_src" to cade,
-            "type" to 0
+            "type" to 4
         )
         return api.getDataOryor(cade,0)
 //        return api.getDataOryor(parameter)

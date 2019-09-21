@@ -34,11 +34,15 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        oryorString?.let {
+        getIntent().getBundleExtra("code")
+
+        val str:String? = intent.getStringExtra("code")
+        str?.let {
             getResult(it)
         }
 
         buttonTest.setOnClickListener {
+//            getResult("20-2-04858-2-0016")
             getResult("13-1-22135-2-0003")
         }
 
@@ -77,6 +81,12 @@ class ResultActivity : AppCompatActivity() {
                         tvTypeAllow.text = data.typeallow
                         tvTypePro.text = data.typepro
                         linearResult.visibility = View.VISIBLE
+
+                        noneData.visibility = View.GONE
+                    } else {
+                        noneData.visibility = View.VISIBLE
+                        noneData.text = "${noneData.text} หมายเลข ${str}"
+                        linearResult.visibility = View.GONE
                     }
 
                 },
