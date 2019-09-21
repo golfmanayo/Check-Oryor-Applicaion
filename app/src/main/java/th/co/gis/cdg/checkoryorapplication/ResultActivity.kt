@@ -1,5 +1,7 @@
 package th.co.gis.cdg.checkoryorapplication
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,11 +28,15 @@ import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
 
 class ResultActivity : AppCompatActivity() {
 
+    private var oryorString : String? =null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val service = OryorService()
+        oryorString?.let {
+            getResult(it)
+        }
 
         buttonTest.setOnClickListener {
             getResult("13-1-22135-2-0003")
