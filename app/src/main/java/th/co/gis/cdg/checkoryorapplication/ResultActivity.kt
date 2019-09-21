@@ -1,33 +1,18 @@
 package th.co.gis.cdg.checkoryorapplication
 
-import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-
-import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions
-import com.google.firebase.ml.vision.common.FirebaseVisionImage
-import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
-import com.google.firebase.ml.vision.text.FirebaseVisionText
-import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_result.*
 import th.co.gis.cdg.checkoryorapplication.database.DatabaseManager
 import th.co.gis.cdg.checkoryorapplication.model.Constants
-import th.co.gis.cdg.checkoryorapplication.service.OryorService
 import th.co.gis.cdg.checkoryorapplication.model.Oryor
-import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
-import th.co.gis.cdg.checkoryorapplication.util.SharedPrefsUtil
+import th.co.gis.cdg.checkoryorapplication.service.OryorService
 
 class ResultActivity : AppCompatActivity() {
 
@@ -52,6 +37,7 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("CheckResult")
     fun getResult(str :String){
         val service = OryorService()
         service.getOryor(str)
@@ -95,12 +81,12 @@ class ResultActivity : AppCompatActivity() {
 
 
 
-//                        DatabaseManager.getInstance(this).insertUpload(arrayOf(data))
-//                            .subscribe({
-//                                Log.i("Success","save")
-//                            },{
-//                                Log.i("Error",it.message)
-//                            })
+                        DatabaseManager.getInstance(this).insertUpload(arrayOf(data))
+                            .subscribe({
+                                Log.i("Success","save")
+                            },{
+                                Log.i("Error",it.message)
+                            })
 
                     } else {
                         noneData.visibility = View.VISIBLE
