@@ -15,7 +15,7 @@ class HistoryActivity : AppCompatActivity() {
 
         DatabaseManager.getInstance(this).getUpload()
             .subscribe({list ->
-                historyListView.adapter = HistoryAdapter(this, list)
+                historyListView.adapter = HistoryAdapter(this, list.toMutableList())
             },{
                 Log.i("Error",it.message)
             })

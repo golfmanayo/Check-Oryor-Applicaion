@@ -39,6 +39,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_main.*
+import th.co.gis.cdg.checkoryorapplication.util.AlertUtil
 import th.co.gis.cdg.checkoryorapplication.util.ImageAnalyzer
 import java.io.File
 import java.io.IOException
@@ -105,7 +106,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     startActivity(intent)
                 }
                 else {
-
+                    AlertUtil.alert(this,"ไม่พบเลข อย. กรุณาลองไหม่อีกครั่ง")
                 }
 
             }
@@ -261,6 +262,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             image_view.visibility = View.GONE
             layer_camera.visibility = View.VISIBLE
             layer_text_oryor.visibility = View.GONE
+            text_oryor.text = ""
             return
         }
     }

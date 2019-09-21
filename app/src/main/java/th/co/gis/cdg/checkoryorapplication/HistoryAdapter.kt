@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.adapter_history.view.*
 import th.co.gis.cdg.checkoryorapplication.database.DatabaseManager
 import th.co.gis.cdg.checkoryorapplication.model.Oryor
 
-class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
+class HistoryAdapter(val context: Context, var data: MutableList<Oryor>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
@@ -66,10 +66,10 @@ class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView
                     DatabaseManager.getInstance(context).deleteUpload(data[adapterPosition].UPLOAD_ID.toString())
                         .subscribe({
                             Log.i("Success","delete")
-                            data.drop(adapterPosition)
+                            data.removeAt(adapterPosition)
                             adapter.notifyDataSetChanged()
                         },{
-                            Log.i("Error",it.message)
+                            Log.i("Error","Error")
                         })
                 }
             }
