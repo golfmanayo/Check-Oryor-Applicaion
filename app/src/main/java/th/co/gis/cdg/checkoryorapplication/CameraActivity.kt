@@ -158,6 +158,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     image_view.visibility = View.VISIBLE
                     layer_camera.visibility = View.GONE
                     layer_text_oryor.visibility = View.VISIBLE
+                    textView.visibility = View.VISIBLE
 
                     Glide.with(this@CameraActivity)
                         .load(file)
@@ -239,6 +240,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                 image_view.visibility = View.VISIBLE
                 layer_camera.visibility = View.GONE
                 layer_text_oryor.visibility = View.VISIBLE
+                textView.visibility = View.VISIBLE
                 Glide.with(this@CameraActivity)
                     .load(uri)
                     .into(image_view)
@@ -262,6 +264,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             image_view.visibility = View.GONE
             layer_camera.visibility = View.VISIBLE
             layer_text_oryor.visibility = View.GONE
+            textView.visibility = View.GONE
             text_oryor.text = ""
             return
         }
