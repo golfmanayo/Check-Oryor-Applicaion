@@ -29,6 +29,13 @@ open class DatabaseManager(context: Context) {
             .doFinally { database.close() }
     }
 
+    fun getOryorByID(id: Int) : Single<Oryor>{
+        return database.uploadDao().getOryorByID(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doFinally { database.close() }
+    }
+
     fun getUpload(): Single<List<Oryor>> {
         return database.uploadDao().getUpload()
             .subscribeOn(Schedulers.io())

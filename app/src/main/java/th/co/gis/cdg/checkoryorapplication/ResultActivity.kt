@@ -22,19 +22,45 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-
-        getIntent().getBundleExtra("code")
-
         val str:String? = intent.getStringExtra("code")
+        val id : Int = intent.getIntExtra("ID_ORYOR",-1)
         str?.let {
             getResult(it)
         }
-
-        buttonTest.setOnClickListener {
-//            getResult("20-2-04858-2-0016")
-            getResult("13-1-22135-2-0003")
+        if (id != -1){
+            getOryorFromDB(id)
         }
 
+
+
+    }
+
+    @SuppressLint("CheckResult")
+    private fun getOryorFromDB(id: Int) {
+        DatabaseManager.getInstance(this).getOryorByID(id)
+            .subscribe({
+                setView(it)
+            },{
+
+            })
+    }
+
+    private fun setView(data: Oryor){
+        tvlcnno.text = data.lcnno
+        tvAddr.text = data.Addr
+        tvIDA.text = data.IDA
+        tvNewCode.text = data.NewCode
+        tvcncnm.text = data.cncnm
+        tvLicen.text = data.licen
+        tvProducEng.text = data.produceng
+        tvProducTh.text = data.productha
+        tvthanm.text = data.thanm
+        tvType.text = data.type
+        tvTypeAllow.text = data.typeallow
+        tvTypePro.text = data.typepro
+        linearResult.visibility = View.VISIBLE
+
+        noneData.visibility = View.GONE
     }
 
     @SuppressLint("CheckResult")
@@ -48,21 +74,8 @@ class ResultActivity : AppCompatActivity() {
                     if(it["output"].toString() != "null"){
                         val data = Gson().fromJson(it["output"],Oryor::class.java)
                         Log.i("Success","search")
-                        tvlcnno.text = data.lcnno
-                        tvAddr.text = data.Addr
-                        tvIDA.text = data.IDA
-                        tvNewCode.text = data.NewCode
-                        tvcncnm.text = data.cncnm
-                        tvLicen.text = data.licen
-                        tvProducEng.text = data.produceng
-                        tvProducTh.text = data.productha
-                        tvthanm.text = data.thanm
-                        tvType.text = data.type
-                        tvTypeAllow.text = data.typeallow
-                        tvTypePro.text = data.typepro
-                        linearResult.visibility = View.VISIBLE
-
-                        noneData.visibility = View.GONE
+                        setView(data)
+                        Constants.list.add(data)
 
                         DatabaseManager.getInstance(this).insertUpload(arrayOf(data))
                             .subscribe({

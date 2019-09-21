@@ -34,12 +34,12 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
         android:onClick="backToCamera"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        app:srcCompat="@drawable/back" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layer_camera"
