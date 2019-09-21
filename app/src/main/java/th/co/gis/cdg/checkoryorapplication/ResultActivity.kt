@@ -22,13 +22,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_result.*
+import th.co.gis.cdg.checkoryorapplication.database.DatabaseManager
+import th.co.gis.cdg.checkoryorapplication.model.Constants
 import th.co.gis.cdg.checkoryorapplication.service.OryorService
 import th.co.gis.cdg.checkoryorapplication.model.Oryor
 import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
+import th.co.gis.cdg.checkoryorapplication.util.SharedPrefsUtil
 
 class ResultActivity : AppCompatActivity() {
 
     private var oryorString : String? =null
+    private var oryorList = arrayListOf<Oryor>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +71,7 @@ class ResultActivity : AppCompatActivity() {
                 {
                     if(it["output"].toString() != "null"){
                         val data = Gson().fromJson(it["output"],Oryor::class.java)
-                        Log.i("Success","test")
+                        Log.i("Success","search")
                         tvlcnno.text = data.lcnno
                         tvAddr.text = data.Addr
                         tvIDA.text = data.IDA
@@ -83,6 +87,21 @@ class ResultActivity : AppCompatActivity() {
                         linearResult.visibility = View.VISIBLE
 
                         noneData.visibility = View.GONE
+
+
+                        Constants.list.add(data)
+//                            val jsonString = SharedPrefsUtil.getString(this,"MultiWorksheetSelect")
+//                            val list = Gson().fromJson(jsonString, Oryor::class.java)
+
+
+
+//                        DatabaseManager.getInstance(this).insertUpload(arrayOf(data))
+//                            .subscribe({
+//                                Log.i("Success","save")
+//                            },{
+//                                Log.i("Error",it.message)
+//                            })
+
                     } else {
                         noneData.visibility = View.VISIBLE
                         noneData.text = "${noneData.text} หมายเลข ${str}"
@@ -95,4 +114,5 @@ class ResultActivity : AppCompatActivity() {
                 }
             )
     }
+
 }
