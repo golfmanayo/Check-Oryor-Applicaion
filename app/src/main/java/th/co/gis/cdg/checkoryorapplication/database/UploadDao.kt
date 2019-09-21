@@ -11,6 +11,9 @@ interface UploadDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg oryor: Oryor): Completable
 
+    @Query("SELECT * FROM UPLOAD WHERE UPLOAD_ID = :id")
+    fun getOryorByID(id: Int): Single<Oryor>
+
     @Query("SELECT * FROM UPLOAD")
     fun getUpload(): Single<List<Oryor>>
 

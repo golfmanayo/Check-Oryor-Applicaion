@@ -17,9 +17,14 @@ import kotlinx.android.synthetic.main.adapter_history.view.*
 import th.co.gis.cdg.checkoryorapplication.database.DatabaseManager
 import th.co.gis.cdg.checkoryorapplication.model.Oryor
 
-class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
+class HistoryAdapter(val context: Context, private var data: List<Oryor>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
     override fun getItemCount(): Int = data.size
+    var callback : HistoryAdapterListener? = null
 
+    fun setData(mdata: List<Oryor>){
+        this.data = mdata
+        notifyDataSetChanged()
+    }
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         holder.tvlcnno.text = data[position].lcnno
         holder.tvAddr.text = data[position].Addr
@@ -58,6 +63,7 @@ class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView
 
         init {
             delete_button.setOnClickListener(this)
+            itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
@@ -72,8 +78,13 @@ class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView
                             Log.i("Error",it.message)
                         })
                 }
+                itemView->{
+                    adapter.callback?.onItemClick(data[adapterPosition])
+                }
             }
         }
     }
-
+    interface HistoryAdapterListener{
+        fun onItemClick(oryor: Oryor)
+    }
 }
