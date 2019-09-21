@@ -62,6 +62,12 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                app:srcCompat="@color/design_default_color_primary_dark" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -325,6 +331,7 @@
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
