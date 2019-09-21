@@ -34,12 +34,12 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
         android:onClick="backToCamera"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        app:srcCompat="@drawable/back" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layer_camera"
@@ -58,7 +58,7 @@
             android:id="@+id/btn_gallery"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:background="@android:color/transparent"
             android:src="@drawable/gallery"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/capture_button"
@@ -70,7 +70,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_margin="24dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:background="@android:color/transparent"
             android:scaleType="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +82,7 @@
             android:id="@+id/btn_history"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:background="@android:color/transparent"
             android:src="@drawable/history"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,16 +106,30 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/prompt"
+            android:text="หมายเลข อย."
+            android:textColor="@android:color/tertiary_text_light"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/text_oryor"
+            app:layout_constraintStart_toStartOf="@id/text_oryor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/text_oryor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/white"
-            android:textSize="35sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/check_button"/>
 
         <ImageButton
             android:id="@+id/check_button"
@@ -123,7 +137,7 @@
             android:layout_height="72dp"
             android:layout_margin="24dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

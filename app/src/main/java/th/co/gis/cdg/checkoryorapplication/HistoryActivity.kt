@@ -20,7 +20,7 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.HistoryAdapterListen
         DatabaseManager.getInstance(this).getUpload()
             .subscribe({ list ->
                 historyListView.adapter = adapter
-                adapter.setData(list)
+                adapter.setData(list.toMutableList())
             }, {
                 Log.i("Error", it.message)
             })

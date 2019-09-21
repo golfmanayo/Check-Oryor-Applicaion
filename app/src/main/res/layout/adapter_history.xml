@@ -32,254 +32,314 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 tools:visibility="visible">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="หมายเลข อย." />
+                    android:text="หมายเลข อย."
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvlcnno"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="ที่อยู่" />
+                    android:text="ที่อยู่"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvAddr"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="IDA" />
+                    android:text="IDA"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvIDA"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="NewCode" />
+                    android:text="NewCode"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvNewCode"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="สถานะ" />
+                    android:text="สถานะ"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvcncnm"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="Licen" />
+                    android:text="Licen"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvLicen"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="ProducEng" />
+                    android:text="ProducEng"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvProducEng"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="ProducTh" />
+                    android:text="ProducTh"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvProducTh"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="ผู้ผลิต" />
+                    android:text="ผู้ผลิต"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvthanm"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="Type" />
+                    android:text="Type"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvType"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="Type allow" />
+                    android:text="Type allow"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvTypeAllow"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="Type Pro" />
+                    android:text="Type Pro"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvTypePro"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text=" - " />
+                    android:text=" - "
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -288,8 +348,9 @@
             android:id="@+id/delete_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="20dp" />
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:src="@drawable/trash" />
 
     </androidx.cardview.widget.CardView>
 
