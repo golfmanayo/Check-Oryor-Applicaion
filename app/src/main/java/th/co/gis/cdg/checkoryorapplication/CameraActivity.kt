@@ -81,14 +81,17 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             }).check()
 
         check_button.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra("code", text_oryor.text)
+            processingImage()
+        }
+        btn_history.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
+
     }
 
-    private fun processingImage(bitmap : Bitmap) {
-        //val bitmap = image_view.drawable.toBitmap()
+    private fun processingImage() {
+        val bitmap = image_view.drawable.toBitmap()
         val image = FirebaseVisionImage.fromBitmap(bitmap)
         detector = FirebaseVision.getInstance()
             .onDeviceTextRecognizer
@@ -97,6 +100,9 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                 val text = Oryor.find(result.text)
                 if (text.isNotEmpty()) {
                     text_oryor.text = text
+                    val intent = Intent(this, ResultActivity::class.java)
+                    intent.putExtra("code", text)
+                    startActivity(intent)
                 }
 
             }
@@ -152,10 +158,6 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     Glide.with(this@CameraActivity)
                         .load(file)
                         .into(image_view)
-
-                    val filePath = file.path
-                    processingImage(BitmapFactory.decodeFile(filePath))
-
                 }
 
                 override fun onError(
@@ -236,7 +238,6 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                 Glide.with(this@CameraActivity)
                     .load(uri)
                     .into(image_view)
-                processingImage(MediaStore.Images.Media.getBitmap(this.contentResolver,uri))
             } catch (e: IOException) {
                 e.printStackTrace()
             }
