@@ -1,8 +1,12 @@
 package th.co.gis.cdg.checkoryorapplication
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 
@@ -13,6 +17,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptio
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -22,17 +27,28 @@ import th.co.gis.cdg.checkoryorapplication.model.Oryor
 import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
 
 class ResultActivity : AppCompatActivity() {
-    
+
+    private var oryorString : String? =null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val service = OryorService()
+        oryorString?.let {
+            getResult(it)
+        }
 
         buttonTest.setOnClickListener {
-            service.getOryor("20-2-04858-2-001")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            getResult("13-1-22135-2-0003")
+        }
+
+    }
+
+    fun getResult(str :String){
+        val service = OryorService()
+        service.getOryor(str)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 //                .subscribeWith(object : DisposableSingleObserver<List<ServiceRespone>>() {
 //                    override fun onSuccess(value: List<ServiceRespone>?) {
 //                        val i=0
@@ -43,37 +59,30 @@ class ResultActivity : AppCompatActivity() {
 //                    }
 //
 //                })
-                .subscribe(
-                    {
+            .subscribe(
+                {
+                    if(it["output"].toString() != "null"){
                         val data = Gson().fromJson(it["output"],Oryor::class.java)
-                        val i=0
-                    },
-                    {
-                        val i=0
+                        Log.i("Success","test")
+                        tvlcnno.text = data.lcnno
+                        tvAddr.text = data.Addr
+                        tvIDA.text = data.IDA
+                        tvNewCode.text = data.NewCode
+                        tvcncnm.text = data.cncnm
+                        tvLicen.text = data.licen
+                        tvProducEng.text = data.produceng
+                        tvProducTh.text = data.productha
+                        tvthanm.text = data.thanm
+                        tvType.text = data.type
+                        tvTypeAllow.text = data.typeallow
+                        tvTypePro.text = data.typepro
+                        linearResult.visibility = View.VISIBLE
                     }
-                )
 
-            val  oryortext = th.co.gis.cdg.checkoryorapplication.Oryor.find("asdf0A2562/23dsads")
-            val i=0
-        }
-
-    }
-
-    fun imageToText(bitmap : Bitmap){
-        val img = FirebaseVisionImage.fromBitmap(bitmap)
-        val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
-        detector.processImage(img)
-            .addOnSuccessListener { texts ->
-                if(texts.textBlocks.size > 0){
-                    var str = ""
-                    texts.textBlocks.forEach { blocktext ->
-                        str = str + blocktext.text
-                    }
-//                    oryor.find(str)
+                },
+                {
+                    Log.i("Error",it.message)
                 }
-            }
-            .addOnFailureListener {
-                    e -> e.printStackTrace()
-            }
+            )
     }
 }

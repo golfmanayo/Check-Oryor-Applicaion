@@ -25,13 +25,13 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".CameraActivity">
+        </activity>
+        <activity android:name=".ResultActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ResultActivity">
         </activity>
     </application>
 
