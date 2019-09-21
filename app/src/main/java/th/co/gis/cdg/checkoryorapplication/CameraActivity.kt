@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.Glide
@@ -71,7 +72,20 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
     }
 
     private fun processingImage() {
+        val bitmap = image_view.drawable.toBitmap()
+        val image = FirebaseVisionImage.fromBitmap(bitmap)
+        val detector = FirebaseVision.getInstance()
+            .onDeviceTextRecognizer
+        val result = detector.processImage(image)
+            .addOnSuccessListener { firebaseVisionText ->
+                val text = Oryor.find(firebaseVisionText.text)
+                Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
 
+            }
+            .addOnFailureListener {
+                // Task failed with an exception
+                // ...
+            }
     }
 
     private fun startCamera() {
@@ -207,7 +221,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
 
     }
 
-    fun backToCamera(view: View? = null){
+    fun backToCamera(view: View? = null) {
         if (image_view.isVisible) {
             back_button.visibility = View.GONE
             view_finder.visibility = View.VISIBLE

@@ -22,9 +22,7 @@ import th.co.gis.cdg.checkoryorapplication.model.Oryor
 import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
 
 class ResultActivity : AppCompatActivity() {
-
-    val oryor = th.co.gis.cdg.checkoryorapplication.Oryor()
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
@@ -55,7 +53,7 @@ class ResultActivity : AppCompatActivity() {
                     }
                 )
 
-            val  oryortext = oryor.find("asdf0A2562/23dsads")
+            val  oryortext = th.co.gis.cdg.checkoryorapplication.Oryor.find("asdf0A2562/23dsads")
             val i=0
         }
 
