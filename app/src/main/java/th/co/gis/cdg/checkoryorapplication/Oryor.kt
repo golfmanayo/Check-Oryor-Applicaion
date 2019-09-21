@@ -1,6 +1,6 @@
 package th.co.gis.cdg.checkoryorapplication
 
-class Oryor {
+object Oryor {
 
     private val foodPattern: String = """[0-9]{2}-[0-9]-[0-9]{5}-[0-9]-[0-9]{1,4}"""
     private val medicinePattern: String = """[0-9]{0,1}[A-FG-HK-N][0-9]{1,4}/[0-9]{2}"""
