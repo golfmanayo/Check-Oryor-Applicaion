@@ -111,11 +111,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/white"
-            android:textSize="35sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/check_button"/>
 
         <ImageButton
             android:id="@+id/check_button"

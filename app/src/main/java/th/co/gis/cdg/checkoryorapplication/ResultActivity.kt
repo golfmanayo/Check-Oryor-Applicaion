@@ -43,16 +43,6 @@ class ResultActivity : AppCompatActivity() {
         service.getOryor(str)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeWith(object : DisposableSingleObserver<List<ServiceRespone>>() {
-//                    override fun onSuccess(value: List<ServiceRespone>?) {
-//                        val i=0
-//                    }
-//
-//                    override fun onError(e: Throwable?) {
-//                        val i=0
-//                    }
-//
-//                })
             .subscribe(
                 {
                     if(it["output"].toString() != "null"){
@@ -73,13 +63,6 @@ class ResultActivity : AppCompatActivity() {
                         linearResult.visibility = View.VISIBLE
 
                         noneData.visibility = View.GONE
-
-
-                        Constants.list.add(data)
-//                            val jsonString = SharedPrefsUtil.getString(this,"MultiWorksheetSelect")
-//                            val list = Gson().fromJson(jsonString, Oryor::class.java)
-
-
 
                         DatabaseManager.getInstance(this).insertUpload(arrayOf(data))
                             .subscribe({
