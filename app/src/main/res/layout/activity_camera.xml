@@ -106,6 +106,19 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/prompt"
+            android:text="หมายเลข อย."
+            android:textColor="@android:color/tertiary_text_light"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/text_oryor"
+            app:layout_constraintStart_toStartOf="@id/text_oryor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/text_oryor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
