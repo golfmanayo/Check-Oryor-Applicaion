@@ -81,16 +81,14 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             }).check()
 
         check_button.setOnClickListener {
-            processingImage()
-//                    Toast.makeText(baseContext, oryor_edit.text, Toast.LENGTH_SHORT).show()
-//                    val intent = Intent(this, ResultActivity::class.java)
-//                    intent.putExtra("code", oryor_edit.text)
-//                    startActivity(intent)
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("code", text_oryor.text)
+            startActivity(intent)
         }
     }
 
-    private fun processingImage() {
-        val bitmap = image_view.drawable.toBitmap()
+    private fun processingImage(bitmap : Bitmap) {
+        //val bitmap = image_view.drawable.toBitmap()
         val image = FirebaseVisionImage.fromBitmap(bitmap)
         detector = FirebaseVision.getInstance()
             .onDeviceTextRecognizer
@@ -98,11 +96,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             .addOnSuccessListener { result ->
                 val text = Oryor.find(result.text)
                 if (text.isNotEmpty()) {
-//                    oryor_edit.text = text
-                    Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, ResultActivity::class.java)
-                    intent.putExtra("code", text)
-                    startActivity(intent)
+                    text_oryor.text = text
                 }
 
             }
@@ -115,8 +109,8 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
 
     private fun startCamera() {
         val previewConfig = PreviewConfig.Builder().apply {
-            setTargetAspectRatio(Rational(1, 1))
-            setTargetResolution(Size(360, 480))
+            setTargetRotation(getWindowManager().getDefaultDisplay().getRotation())
+            setTargetAspectRatio(Rational(3, 4))
         }.build()
 
         val preview = Preview(previewConfig)
@@ -133,7 +127,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
 
         val imageCaptureConfig = ImageCaptureConfig.Builder()
             .apply {
-                setTargetAspectRatio(Rational(1, 1))
+                setTargetAspectRatio(Rational(3, 4))
                 // We don't set a resolution for image capture; instead, we
                 // select a capture mode which will infer the appropriate
                 // resolution based on aspect ration and requested mode
@@ -152,34 +146,15 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     back_button.visibility = View.VISIBLE
                     view_finder.visibility = View.GONE
                     image_view.visibility = View.VISIBLE
-                    check_button.visibility = View.GONE
-                    check_button.visibility = View.VISIBLE
-                    oryor_edit.visibility = View.GONE
-                    oryor_edit.visibility = View.VISIBLE
+                    layer_camera.visibility = View.GONE
+                    layer_text_oryor.visibility = View.VISIBLE
+
                     Glide.with(this@CameraActivity)
                         .load(file)
-//                        .listener(object : RequestListener<Drawable> {
-//                            override fun onLoadFailed(
-//                                e: GlideException?,
-//                                model: Any?,
-//                                target: Target<Drawable>?,
-//                                isFirstResource: Boolean
-//                            ): Boolean {
-//                                return false
-//                            }
-//
-//                            override fun onResourceReady(
-//                                resource: Drawable?,
-//                                model: Any?,
-//                                target: com.bumptech.glide.request.target.Target<Drawable>?,
-//                                dataSource: com.bumptech.glide.load.DataSource?,
-//                                isFirstResource: Boolean
-//                            ): Boolean {
-//                                processingImage()
-//                                return false
-//                            }
-//                        })
                         .into(image_view)
+
+                    val filePath = file.path
+                    processingImage(BitmapFactory.decodeFile(filePath))
 
                 }
 
@@ -198,23 +173,23 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
         }
 
         //For real time
-        val analyzerConfig = ImageAnalysisConfig.Builder().apply {
-            setLensFacing(CameraX.LensFacing.BACK)
-            // run the analytics on a background thread so we are not interrupting
-            // the preview
-            val analyzerThread = HandlerThread("OCR").apply { start() }
-            setCallbackHandler(Handler(analyzerThread.looper))
-            // we only care about the latest image in the buffer,
-            // we do not need to analyze each image
-            setImageReaderMode(ImageAnalysis.ImageReaderMode.ACQUIRE_LATEST_IMAGE)
-            setTargetResolution(Size(480, 360))
-        }.build()
-
-        val analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
-            val imageAnalyzer = ImageAnalyzer()
-            analyzer = imageAnalyzer
-            imageAnalyzer.callBack = this@CameraActivity
-        }
+//        val analyzerConfig = ImageAnalysisConfig.Builder().apply {
+//            setLensFacing(CameraX.LensFacing.BACK)
+//            // run the analytics on a background thread so we are not interrupting
+//            // the preview
+//            val analyzerThread = HandlerThread("OCR").apply { start() }
+//            setCallbackHandler(Handler(analyzerThread.looper))
+//            // we only care about the latest image in the buffer,
+//            // we do not need to analyze each image
+//            setImageReaderMode(ImageAnalysis.ImageReaderMode.ACQUIRE_LATEST_IMAGE)
+//            setTargetResolution(Size(480, 360))
+//        }.build()
+//
+//        val analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
+//            val imageAnalyzer = ImageAnalyzer()
+//            analyzer = imageAnalyzer
+//            imageAnalyzer.callBack = this@CameraActivity
+//        }
 
 
         CameraX.bindToLifecycle(this, preview, imageCapture)
@@ -253,11 +228,15 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
         if (requestCode == SELECT_PHOTO_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val uri = data.data
             try {
+                back_button.visibility = View.VISIBLE
                 view_finder.visibility = View.GONE
                 image_view.visibility = View.VISIBLE
+                layer_camera.visibility = View.GONE
+                layer_text_oryor.visibility = View.VISIBLE
                 Glide.with(this@CameraActivity)
                     .load(uri)
                     .into(image_view)
+                processingImage(MediaStore.Images.Media.getBitmap(this.contentResolver,uri))
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -276,30 +255,9 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
             back_button.visibility = View.GONE
             view_finder.visibility = View.VISIBLE
             image_view.visibility = View.GONE
-            check_button.visibility = View.VISIBLE
-            check_button.visibility = View.GONE
-            oryor_edit.visibility = View.VISIBLE
-            oryor_edit.visibility = View.GONE
+            layer_camera.visibility = View.VISIBLE
+            layer_text_oryor.visibility = View.GONE
             return
         }
-    }
-
-    private fun imageToText(bitmap: Bitmap) {
-        val img = FirebaseVisionImage.fromBitmap(bitmap)
-        val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
-        detector.processImage(img)
-            .addOnSuccessListener { texts ->
-                if (texts.textBlocks.size > 0) {
-                    var str = ""
-                    texts.textBlocks.forEach { blocktext ->
-                        str += blocktext.text
-                    }
-//                    oryor.find(str)
-                    Log.i("TAG", str)
-                }
-            }
-            .addOnFailureListener { e ->
-                e.printStackTrace()
-            }
     }
 }
