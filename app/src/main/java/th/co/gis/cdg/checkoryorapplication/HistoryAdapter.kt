@@ -36,18 +36,18 @@ class HistoryAdapter(val context: Context, var data: List<Oryor>) : RecyclerView
 
     inner class HistoryViewHolder(itemView: View, private val adapter: HistoryAdapter) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val tvlcnno: TextView = itemView.tvlcnno
-        val tvAddr: TextView = itemView.tvAddr
-        val tvIDA: TextView = itemView.tvIDA
-        val tvNewCode: TextView = itemView.tvNewCode
-        val tvcncnm: TextView = itemView.tvcncnm
-        val tvLicen: TextView = itemView.tvLicen
-        val tvProducEng: TextView = itemView.tvProducEng
-        val tvProducTh: TextView = itemView.tvProducTh
-        val tvthanm: TextView = itemView.tvthanm
-        val tvType: TextView = itemView.tvType
-        val tvTypeAllow: TextView = itemView.tvTypeAllow
-        val tvTypePro: TextView = itemView.tvTypePro
+        val tvlcnno: TextView = itemView.findViewById(R.id.tvlcnno)
+        val tvAddr: TextView = itemView.findViewById(R.id.tvAddr)
+        val tvIDA: TextView = itemView.findViewById(R.id.tvIDA)
+        val tvNewCode: TextView = itemView.findViewById(R.id.tvNewCode)
+        val tvcncnm: TextView = itemView.findViewById(R.id.tvcncnm)
+        val tvLicen: TextView = itemView.findViewById(R.id.tvLicen)
+        val tvProducEng: TextView = itemView.findViewById(R.id.tvProducEng)
+        val tvProducTh: TextView = itemView.findViewById(R.id.tvProducTh)
+        val tvthanm: TextView = itemView.findViewById(R.id.tvthanm)
+        val tvType: TextView = itemView.findViewById(R.id.tvType)
+        val tvTypeAllow: TextView = itemView.findViewById(R.id.tvTypeAllow)
+        val tvTypePro: TextView = itemView.findViewById(R.id.tvTypePro)
 
         init {
             //.setOnClickListener(this)
