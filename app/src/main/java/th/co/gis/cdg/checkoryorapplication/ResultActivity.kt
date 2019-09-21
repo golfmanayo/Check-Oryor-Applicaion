@@ -3,6 +3,7 @@ package th.co.gis.cdg.checkoryorapplication
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 
@@ -13,6 +14,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptio
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -32,7 +34,7 @@ class ResultActivity : AppCompatActivity() {
         val service = OryorService()
 
         buttonTest.setOnClickListener {
-            service.getOryor("20-2-04858-2-001")
+            service.getOryor("13-1-22135-2-0003")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 //                .subscribeWith(object : DisposableSingleObserver<List<ServiceRespone>>() {
@@ -47,16 +49,18 @@ class ResultActivity : AppCompatActivity() {
 //                })
                 .subscribe(
                     {
-                        val data = Gson().fromJson(it["output"],Oryor::class.java)
-                        val i=0
+                        if(it["output"].toString() != "null"){
+                            val data = Gson().fromJson(it["output"],Oryor::class.java)
+                            Log.i("Success","test")
+                        }
+
                     },
                     {
-                        val i=0
+                        Log.i("Error",it.message)
                     }
                 )
 
             val  oryortext = oryor.find("asdf0A2562/23dsads")
-            val i=0
         }
 
     }
