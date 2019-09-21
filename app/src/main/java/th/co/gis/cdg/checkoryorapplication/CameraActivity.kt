@@ -252,7 +252,16 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
     }
 
     override fun onBackPressed() {
-        backToCamera()
+        if (image_view.isVisible) {
+            back_button.visibility = View.GONE
+            view_finder.visibility = View.VISIBLE
+            image_view.visibility = View.GONE
+            layer_camera.visibility = View.VISIBLE
+            layer_text_oryor.visibility = View.GONE
+            textView.visibility = View.GONE
+            text_oryor.text = ""
+            return
+        }
         super.onBackPressed()
 
     }
