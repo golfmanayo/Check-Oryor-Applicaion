@@ -36,13 +36,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 tools:visibility="visible">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="หมายเลข อย." />
 
@@ -51,6 +52,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -59,12 +61,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ที่อยู่" />
 
@@ -73,6 +76,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -80,12 +84,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="IDA" />
 
@@ -94,6 +99,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -102,12 +108,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="NewCode" />
 
@@ -116,6 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -123,12 +131,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="สถานะ" />
 
@@ -137,6 +146,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -145,12 +155,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Licen" />
 
@@ -159,6 +170,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -166,12 +178,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ProducEng" />
 
@@ -180,6 +193,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -188,12 +202,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ProducTh" />
 
@@ -202,6 +217,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -209,12 +225,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ผู้ผลิต" />
 
@@ -223,6 +240,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -231,12 +249,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type" />
 
@@ -245,6 +264,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -252,12 +272,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type allow" />
 
@@ -266,6 +287,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
@@ -274,12 +296,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#64FFDA"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.25"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type Pro" />
 
@@ -288,6 +311,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text=" - " />
             </LinearLayout>
