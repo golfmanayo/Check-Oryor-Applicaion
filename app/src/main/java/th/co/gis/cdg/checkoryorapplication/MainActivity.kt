@@ -7,6 +7,8 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -83,5 +85,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun imageToText(bitmap : Bitmap){
+        val img = FirebaseVisionImage.fromBitmap(bitmap)
+        val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
+        detector.processImage(img)
+            .addOnSuccessListener { texts ->
+                if(texts.textBlocks.size > 0){
+                    var str = ""
+                    texts.textBlocks.forEach { blocktext ->
+                        str = str + blocktext.text
+                    }
+//                    oryor.find(str)
+                }
+            }
+            .addOnFailureListener {
+                    e -> e.printStackTrace()
+            }
+    }
 
 }
