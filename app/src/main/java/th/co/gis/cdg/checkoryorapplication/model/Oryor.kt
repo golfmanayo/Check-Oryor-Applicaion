@@ -1,7 +1,10 @@
 package th.co.gis.cdg.checkoryorapplication.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "UPLOAD")
 data class Oryor(
     @SerializedName("Addr") val Addr: String? = null,
     @SerializedName("IDA") val IDA: String? = null,
@@ -16,4 +19,6 @@ data class Oryor(
     @SerializedName("type") val type: String? = null,
     @SerializedName("typeallow") val typeallow: String? = null,
     @SerializedName("typepro") val typepro: String? = null
-    )
+    ){
+    @PrimaryKey(autoGenerate = true) var UPLOAD_ID: Int = 0
+}
