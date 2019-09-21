@@ -27,17 +27,17 @@ class HistoryAdapter(val context: Context, private var data: MutableList<Oryor>)
     }
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         holder.tvlcnno.text = data[position].lcnno
-        holder.tvAddr.text = data[position].Addr
-        holder.tvIDA.text = data[position].IDA
-        holder.tvNewCode.text = data[position].NewCode
+//        holder.tvAddr.text = data[position].Addr
+//        holder.tvIDA.text = data[position].IDA
+//        holder.tvNewCode.text = data[position].NewCode
         holder.tvcncnm.text = data[position].cncnm
         holder.tvLicen.text = data[position].licen
-        holder.tvProducEng.text = data[position].produceng
+//        holder.tvProducEng.text = data[position].produceng
         holder.tvProducTh.text = data[position].productha
         holder.tvthanm.text = data[position].thanm
-        holder.tvType.text = data[position].type
-        holder.tvTypeAllow.text = data[position].typeallow
-        holder.tvTypePro.text = data[position].typepro
+//        holder.tvType.text = data[position].type
+//        holder.tvTypeAllow.text = data[position].typeallow
+//        holder.tvTypePro.text = data[position].typepro
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -48,17 +48,17 @@ class HistoryAdapter(val context: Context, private var data: MutableList<Oryor>)
     inner class HistoryViewHolder(itemView: View, private val adapter: HistoryAdapter) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val tvlcnno: TextView = itemView.findViewById(R.id.tvlcnno)
-        val tvAddr: TextView = itemView.findViewById(R.id.tvAddr)
-        val tvIDA: TextView = itemView.findViewById(R.id.tvIDA)
-        val tvNewCode: TextView = itemView.findViewById(R.id.tvNewCode)
+//        val tvAddr: TextView = itemView.findViewById(R.id.tvAddr)
+//        val tvIDA: TextView = itemView.findViewById(R.id.tvIDA)
+//        val tvNewCode: TextView = itemView.findViewById(R.id.tvNewCode)
         val tvcncnm: TextView = itemView.findViewById(R.id.tvcncnm)
         val tvLicen: TextView = itemView.findViewById(R.id.tvLicen)
-        val tvProducEng: TextView = itemView.findViewById(R.id.tvProducEng)
+//        val tvProducEng: TextView = itemView.findViewById(R.id.tvProducEng)
         val tvProducTh: TextView = itemView.findViewById(R.id.tvProducTh)
         val tvthanm: TextView = itemView.findViewById(R.id.tvthanm)
-        val tvType: TextView = itemView.findViewById(R.id.tvType)
-        val tvTypeAllow: TextView = itemView.findViewById(R.id.tvTypeAllow)
-        val tvTypePro: TextView = itemView.findViewById(R.id.tvTypePro)
+//        val tvType: TextView = itemView.findViewById(R.id.tvType)
+//        val tvTypeAllow: TextView = itemView.findViewById(R.id.tvTypeAllow)
+//        val tvTypePro: TextView = itemView.findViewById(R.id.tvTypePro)
         val delete_button: ImageButton = itemView.findViewById(R.id.delete_button)
 
         init {

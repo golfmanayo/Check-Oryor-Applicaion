@@ -24,6 +24,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
         val str:String? = intent.getStringExtra("code")
         val id : Int = intent.getIntExtra("ID_ORYOR",-1)
+        progress.visibility = View.VISIBLE
         str?.let {
             getResult(it)
         }
@@ -39,6 +40,7 @@ class ResultActivity : AppCompatActivity() {
     private fun getOryorFromDB(id: Int) {
         DatabaseManager.getInstance(this).getOryorByID(id)
             .subscribe({
+                progress.visibility = View.GONE
                 setView(it)
             },{
 
@@ -71,6 +73,7 @@ class ResultActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
+                    progress.visibility = View.GONE
                     if(it["output"].toString() != "null"){
                         val data = Gson().fromJson(it["output"],Oryor::class.java)
                         Log.i("Success","search")

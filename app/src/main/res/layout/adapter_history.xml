@@ -51,88 +51,87 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
-                    android:gravity="center"
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="ที่อยู่"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ที่อยู่"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAddr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvAddr"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="IDA"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="IDA"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvIDA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvIDA"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="NewCode"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="NewCode"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvNewCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvNewCode"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,7 +154,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
-                    android:gravity="center"
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
@@ -181,10 +179,35 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
-                    android:gravity="center"
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ProducEng"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvProducEng"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -197,33 +220,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
-                    android:text="ProducEng"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvProducEng"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="ProducTh"
+                    android:text="ชื่อผลิตภัณฑ์"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="12sp" />
 
@@ -233,7 +230,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
-                    android:gravity="center"
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
@@ -259,88 +255,86 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
-                    android:gravity="center"
                     android:text=" - "
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="Type"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Type"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvType"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="Type allow"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Type allow"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvTypeAllow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvTypeAllow"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text="Type Pro"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Type Pro"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvTypePro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/prompt"
-                    android:gravity="center"
-                    android:text=" - "
-                    android:textSize="15sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/tvTypePro"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/prompt"-->
+<!--                    android:text=" - "-->
+<!--                    android:textSize="15sp" />-->
+<!--            </LinearLayout>-->
 
         </LinearLayout>
 
