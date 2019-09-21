@@ -12,12 +12,18 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
+import com.google.gson.Gson
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_result.*
 import th.co.gis.cdg.checkoryorapplication.service.OryorService
+import th.co.gis.cdg.checkoryorapplication.model.Oryor
+import th.co.gis.cdg.checkoryorapplication.model.ServiceRespone
 
 class ResultActivity : AppCompatActivity() {
 
-    val oryor = Oryor()
+    val oryor = th.co.gis.cdg.checkoryorapplication.Oryor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +33,28 @@ class ResultActivity : AppCompatActivity() {
 
         buttonTest.setOnClickListener {
             service.getOryor("20-2-04858-2-001")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeWith(object : DisposableSingleObserver<List<ServiceRespone>>() {
+//                    override fun onSuccess(value: List<ServiceRespone>?) {
+//                        val i=0
+//                    }
+//
+//                    override fun onError(e: Throwable?) {
+//                        val i=0
+//                    }
+//
+//                })
                 .subscribe(
                     {
+                        val data = Gson().fromJson(it["output"],Oryor::class.java)
                         val i=0
                     },
                     {
-
+                        val i=0
                     }
                 )
+
             val  oryortext = oryor.find("asdf0A2562/23dsads")
             val i=0
         }

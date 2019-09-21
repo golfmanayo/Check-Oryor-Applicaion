@@ -1,5 +1,7 @@
 package th.co.gis.cdg.checkoryorapplication.service
 
+import com.google.gson.JsonObject
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -24,12 +26,13 @@ class OryorService {
         api = retrofit.create(OryorApi::class.java)
     }
 
-    fun getOryor(cade : String): Single<List<Oryor>> {
+    fun getOryor(cade : String): Observable<JsonObject> {
         val parameter = hashMapOf<String,Any>(
             "number_src" to cade,
             "type" to 0
         )
-        return api.getDataOryor(parameter)
+        return api.getDataOryor(cade,0)
+//        return api.getDataOryor(parameter)
     }
 
 }
