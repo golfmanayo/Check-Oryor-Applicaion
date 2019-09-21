@@ -104,6 +104,9 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageA
                     intent.putExtra("code", text)
                     startActivity(intent)
                 }
+                else {
+
+                }
 
             }
             .addOnFailureListener {

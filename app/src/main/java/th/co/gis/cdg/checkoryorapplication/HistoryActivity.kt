@@ -13,12 +13,11 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-        historyListView.adapter = HistoryAdapter(this, Constants.list)
-//        DatabaseManager.getInstance(this).getUpload()
-//            .subscribe({list ->
-//                historyListView.adapter = HistoryAdapter(this, Constants.list)
-//            },{
-//                Log.i("Error",it.message)
-//            })
+        DatabaseManager.getInstance(this).getUpload()
+            .subscribe({list ->
+                historyListView.adapter = HistoryAdapter(this, list)
+            },{
+                Log.i("Error",it.message)
+            })
       }
 }
