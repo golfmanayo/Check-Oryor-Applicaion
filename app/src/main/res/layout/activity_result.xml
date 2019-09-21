@@ -27,8 +27,10 @@
             android:id="@+id/linearResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
             android:visibility="gone"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -40,9 +42,9 @@
                 tools:visibility="visible">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="หมายเลข อย."
@@ -51,7 +53,7 @@
 
                 <TextView
                     android:id="@+id/tvlcnno"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -63,13 +65,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ที่อยู่"
@@ -78,7 +79,7 @@
 
                 <TextView
                     android:id="@+id/tvAddr"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -93,9 +94,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="IDA"
@@ -104,7 +105,7 @@
 
                 <TextView
                     android:id="@+id/tvIDA"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -116,13 +117,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="NewCode"
@@ -131,7 +131,7 @@
 
                 <TextView
                     android:id="@+id/tvNewCode"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -146,9 +146,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="สถานะ"
@@ -157,7 +157,7 @@
 
                 <TextView
                     android:id="@+id/tvcncnm"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -169,13 +169,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Licen"
@@ -184,7 +183,7 @@
 
                 <TextView
                     android:id="@+id/tvLicen"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -199,9 +198,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ProducEng"
@@ -210,7 +209,7 @@
 
                 <TextView
                     android:id="@+id/tvProducEng"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -222,13 +221,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ProducTh"
@@ -237,7 +235,7 @@
 
                 <TextView
                     android:id="@+id/tvProducTh"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -252,9 +250,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="ผู้ผลิต"
@@ -263,7 +261,7 @@
 
                 <TextView
                     android:id="@+id/tvthanm"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -275,13 +273,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type"
@@ -290,7 +287,7 @@
 
                 <TextView
                     android:id="@+id/tvType"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -305,9 +302,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type allow"
@@ -316,7 +313,7 @@
 
                 <TextView
                     android:id="@+id/tvTypeAllow"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
@@ -328,13 +325,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64FFDA"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
+                    android:layout_weight="1"
                     android:fontFamily="@font/prompt"
                     android:gravity="center"
                     android:text="Type Pro"
@@ -343,7 +339,7 @@
 
                 <TextView
                     android:id="@+id/tvTypePro"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/prompt"
