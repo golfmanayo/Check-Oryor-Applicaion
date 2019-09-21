@@ -58,6 +58,8 @@
             android:id="@+id/btn_gallery"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:src="@drawable/photo_album"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/capture_button"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,10 +70,12 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_margin="24dp"
+            android:scaleType="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/camera_shot" />
 
         <ImageButton
             android:id="@+id/btn_history"
