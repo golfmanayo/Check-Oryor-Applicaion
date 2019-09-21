@@ -7,6 +7,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import android.provider.MediaStore
 import android.util.Log
 import android.util.Rational
@@ -25,6 +27,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -32,14 +35,20 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_main.*
+import th.co.gis.cdg.checkoryorapplication.util.ImageAnalyzer
 import java.io.File
 import java.io.IOException
 
-class CameraActivity : AppCompatActivity(), LifecycleOwner {
+class CameraActivity : AppCompatActivity(), LifecycleOwner, ImageAnalyzer.ImageAnalyzerListener {
+    override fun onGetTextOryor(string: String) {
+        Toast.makeText(baseContext, string, Toast.LENGTH_SHORT).show()
+    }
+
     companion object {
         private const val SELECT_PHOTO_REQUEST_CODE = 100
     }
 
+    private var detector: FirebaseVisionTextRecognizer? = null
     private lateinit var viewFinder: TextureView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,24 +83,30 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
     private fun processingImage() {
         val bitmap = image_view.drawable.toBitmap()
         val image = FirebaseVisionImage.fromBitmap(bitmap)
-        val detector = FirebaseVision.getInstance()
+        detector = FirebaseVision.getInstance()
             .onDeviceTextRecognizer
-        val result = detector.processImage(image)
-            .addOnSuccessListener { firebaseVisionText ->
-                val text = Oryor.find(firebaseVisionText.text)
-                Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
+        detector!!.processImage(image)
+            .addOnSuccessListener { result ->
+                val text = Oryor.find(result.text)
+                if (text.isNotEmpty()) {
+                    Toast.makeText(baseContext, text, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ResultActivity::class.java)
+                    intent.putExtra("code", text)
+                    startActivity(intent)
+                }
 
             }
             .addOnFailureListener {
                 // Task failed with an exception
                 // ...
             }
+
     }
 
     private fun startCamera() {
         val previewConfig = PreviewConfig.Builder().apply {
             setTargetAspectRatio(Rational(1, 1))
-            setTargetResolution(Size(640, 640))
+            setTargetResolution(Size(360, 480))
         }.build()
 
         val preview = Preview(previewConfig)
@@ -150,21 +165,23 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
         }
 
         //For real time
-//        val analyzerConfig = ImageAnalysisConfig.Builder().apply {
-//            setLensFacing(CameraX.LensFacing.BACK)
-//            // run the analytics on a background thread so we are not interrupting
-//            // the preview
-//            val analyzerThread = HandlerThread("OCR").apply { start() }
-//            setCallbackHandler(Handler(analyzerThread.looper))
-//            // we only care about the latest image in the buffer,
-//            // we do not need to analyze each image
-//            setImageReaderMode(ImageAnalysis.ImageReaderMode.ACQUIRE_LATEST_IMAGE)
-//            setTargetResolution(Size(1280, 720))
-//        }.build()
-//
-//        val analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
-//            analyzer = ImageAnalyzer()
-//        }
+        val analyzerConfig = ImageAnalysisConfig.Builder().apply {
+            setLensFacing(CameraX.LensFacing.BACK)
+            // run the analytics on a background thread so we are not interrupting
+            // the preview
+            val analyzerThread = HandlerThread("OCR").apply { start() }
+            setCallbackHandler(Handler(analyzerThread.looper))
+            // we only care about the latest image in the buffer,
+            // we do not need to analyze each image
+            setImageReaderMode(ImageAnalysis.ImageReaderMode.ACQUIRE_LATEST_IMAGE)
+            setTargetResolution(Size(480, 360))
+        }.build()
+
+        val analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
+            val imageAnalyzer = ImageAnalyzer()
+            analyzer = imageAnalyzer
+            imageAnalyzer.callBack = this@CameraActivity
+        }
 
 
         CameraX.bindToLifecycle(this, preview, imageCapture)
