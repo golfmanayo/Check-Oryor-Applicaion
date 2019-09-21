@@ -7,6 +7,7 @@
     android:id="@+id/layer_camera_main"
     tools:context=".CameraActivity">
 
+
     <TextureView
         android:id="@+id/view_finder"
         android:layout_width="match_parent"
@@ -27,6 +28,19 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:onClick="backToCamera"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layer_camera"

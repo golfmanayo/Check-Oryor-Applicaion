@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
+import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -70,7 +71,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
     }
 
     private fun processingImage() {
-        
+
     }
 
     private fun startCamera() {
@@ -109,6 +110,7 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
 
             imageCapture.takePicture(file, object : ImageCapture.OnImageSavedListener {
                 override fun onImageSaved(file: File) {
+                    back_button.visibility = View.VISIBLE
                     view_finder.visibility = View.GONE
                     image_view.visibility = View.VISIBLE
                     check_button.visibility = View.GONE
@@ -196,6 +198,23 @@ class CameraActivity : AppCompatActivity(), LifecycleOwner {
                 e.printStackTrace()
             }
 
+        }
+    }
+
+    override fun onBackPressed() {
+        backToCamera()
+        super.onBackPressed()
+
+    }
+
+    fun backToCamera(view: View? = null){
+        if (image_view.isVisible) {
+            back_button.visibility = View.GONE
+            view_finder.visibility = View.VISIBLE
+            image_view.visibility = View.GONE
+            check_button.visibility = View.VISIBLE
+            check_button.visibility = View.GONE
+            return
         }
     }
 
